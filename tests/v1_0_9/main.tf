@@ -1,0 +1,19 @@
+terraform {
+  required_providers {
+    harness = { source = "harness/harness" }
+    random = { source = "hashicorp/random" }
+    null = { source = "hashicorp/null" }
+    time = { source = "hashicorp/time" }
+  }
+}
+
+module "base" {
+  source  = "loren.harness.io/WqS38aeyQjayoqy6mzwceA/test-module-registry/harness"
+  version = "v1.0.9"
+  num_resources = var.num_resources
+}
+
+variable "num_resources" {
+  type    = number
+  default = 2
+}
