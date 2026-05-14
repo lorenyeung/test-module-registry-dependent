@@ -6,11 +6,16 @@ variables {
   base_module_version = "v1.0.9"
 }
 
-run "creates_resources_with_base_v1_0_9" {
+run "creates_correct_resource_count_with_base_v1_0_9" {
   command = apply
 
   assert {
-    condition     = module.base != null
-    error_message = "base module output should not be null"
+    condition     = output.resource_count == 2
+    error_message = "Expected resource_count=2, got ${output.resource_count}"
+  }
+
+  assert {
+    condition     = length(output.random_ids) == 2
+    error_message = "Expected 2 random IDs, got ${length(output.random_ids)}"
   }
 }
