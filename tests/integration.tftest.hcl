@@ -1,4 +1,4 @@
-# Upgrade test: v1.0.11 adds outputs — validate they work correctly
+# git-ref test: validates test via direct git source (no registry tag needed)
 run "creates_correct_resources_with_base_v1_0_11" {
   command = apply
 
