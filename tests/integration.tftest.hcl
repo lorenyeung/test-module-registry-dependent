@@ -1,5 +1,5 @@
-# Upgrade test: v1.0.11 adds outputs — validate they work correctly
-run "creates_correct_resources_with_base_v1_0_11" {
+# Tofu test: validates dependent module consuming test-module-registry via git ref
+run "creates_correct_resources" {
   command = apply
 
   assert {
@@ -13,7 +13,7 @@ run "creates_correct_resources_with_base_v1_0_11" {
   }
 }
 
-run "plan_works_with_more_resources" {
+run "plan_with_more_resources" {
   command = plan
 
   variables {
