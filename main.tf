@@ -1,15 +1,11 @@
 terraform {
   required_providers {
     harness = { source = "harness/harness" }
-    random  = { source = "hashicorp/random" }
-    null    = { source = "hashicorp/null" }
-    time    = { source = "hashicorp/time" }
   }
 }
 
 module "base" {
-  source        = "loren.harness.io/WqS38aeyQjayoqy6mzwceA/test-module-registry/harness"
-  version       = "v1.0.11"
+  source        = "git::https://github.com/lorenyeung/test-module-registry.git?ref=main"
   num_resources = var.num_resources
 }
 
