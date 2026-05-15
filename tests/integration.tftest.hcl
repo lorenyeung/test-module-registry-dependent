@@ -3,8 +3,8 @@ run "creates_correct_resources_with_base_v1_0_11" {
   command = apply
 
   assert {
-    condition     = output.resource_count == 2
-    error_message = "Expected resource_count=2, got ${output.resource_count}"
+    condition     = output.resource_count == 999
+    error_message = "SENTINEL FAILURE: this assert should fail if PR branch is being tested"
   }
 
   assert {
