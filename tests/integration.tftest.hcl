@@ -1,10 +1,10 @@
-# git-ref test: validates test via direct git source (no registry tag needed)
-run "creates_correct_resources_with_base_v1_0_11" {
+# Tofu test: validates dependent module consuming test-module-registry via git ref
+run "creates_correct_resources" {
   command = apply
 
   assert {
-    condition     = output.resource_count == 999
-    error_message = "SENTINEL FAILURE: this assert should fail if PR branch is being tested"
+    condition     = output.resource_count == 2
+    error_message = "Expected resource_count=2, got ${output.resource_count}"
   }
 
   assert {
@@ -13,7 +13,7 @@ run "creates_correct_resources_with_base_v1_0_11" {
   }
 }
 
-run "plan_works_with_more_resources" {
+run "plan_with_more_resources" {
   command = plan
 
   variables {
